@@ -35,13 +35,13 @@ If seed data is provided (or you already created it), you can skip this step.
 -- so we can start with a fresh state.
 -- (RESTART IDENTITY resets the primary key)
 
-TRUNCATE TABLE students RESTART IDENTITY; -- replace with your own table name.
+TRUNCATE TABLE albums RESTART IDENTITY; -- replace with your own table name.
 
--- Below this line there should only be `INSERT` statements.
--- Replace these statements with your own seed data.
+INSERT INTO albums (id, title, release_year, artist_id) VALUES(1, 'Donda', 2021, 1);
+INSERT INTO albums (id, title, release_year, artist_id) VALUES(2, 'Midnights', 2022, 2);
+INSERT INTO albums (id, title, release_year, artist_id) VALUES(3, 'Future Nostalgia', 2020, 3);
+INSERT INTO albums (id, title, release_year, artist_id) VALUES(4, 'Folklore', 2020, 2);
 
-INSERT INTO students (name, cohort_name) VALUES ('David', 'April 2022');
-INSERT INTO students (name, cohort_name) VALUES ('Anna', 'May 2022');
 ```
 
 Run this SQL file on the database to truncate (empty) the table, and insert the seed data. Be mindful of the fact any existing records in the table will be deleted.
@@ -60,12 +60,28 @@ Usually, the Model class name will be the capitalised table name (single instead
 
 # Model class
 # (in lib/student.rb)
-class Student
+class Album
+def initialize
+  @id, @title, @release_year, @artist_id = [0, '', 0, 0]
+end
+
+attr_accessor :id, :title, :release_year, :artist_id
 end
 
 # Repository class
 # (in lib/student_repository.rb)
-class StudentRepository
+class AlbumRepository
+  def all
+  end
+
+  def find(id)
+  end
+
+  def create(album)
+  end
+
+  def delete(id)
+  end
 end
 ```
 
