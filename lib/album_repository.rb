@@ -1,13 +1,22 @@
 class AlbumRepository
   def all
-    
+    sql = 'SELECT * FROM albums'
+    DatabaseConnection.exec_params(sql,[])
   end
 
-  def find
-
+  def find(id)
+    sql = "SELECT * FROM albums WHERE id = #{id}"
+    DatabaseConnection.exec_params(sql,[])
   end
 
-  def create
+  def create(album)
+    sql = "INSERT INTO albums (id, title, release_year, artist_id)
+    VALUES(#{album.id}, '#{album.title}', #{album.release_year}, #{album.artist_id})"
+    DatabaseConnection.exec_params(sql, [])
+  end
 
+  def delete(id)
+    sql = "DELETE FROM albums WHERE id = #{id}"
+    DatabaseConnection.exec_params(sql, [])
   end
 end
