@@ -20,6 +20,9 @@ new_album.title = "Arshad fire mixtape"
 new_album.release_year = 2022
 new_album.artist_id = 6
 
-album_repository.all.each do |album|
-  p album
-end
+# album_repository.all.each do |album|
+#   p album
+# end
+
+third_album = album_repository.find(3)
+puts "#{third_album.id}. #{third_album.title}, #{third_album.release_year}, #{third_album.artist_id}"
