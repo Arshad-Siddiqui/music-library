@@ -1,4 +1,4 @@
-require 'artist'
+require_relative './artist.rb'
 
 class ArtistRepository
   def all

@@ -1,4 +1,4 @@
-require 'album'
+require_relative './album.rb'
 
 class AlbumRepository
   def all
