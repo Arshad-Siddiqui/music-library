@@ -1,14 +1,8 @@
 class ArtistRepository
   def all
-    artists = []
-    DatabaseConnection.exec_params('SELECT * FROM artists',[]).each do |result|
-      p result
-      artist = Artist.new(result['id'], 'Kanye West', result['genre'])
-      p artist
-      artist.name = result['name']
-      artists << artist
+    DatabaseConnection.exec_params('SELECT * FROM artists').map do |result|
+      artist = Artist.new(result['id'], result['name'], result['genre'])
     end
-    return artists
   end
 
   def find(id)
@@ -26,6 +20,6 @@ class ArtistRepository
   end
 
   def update(column, value, id)
-    sql = "UPDATE artists SET #{column} = #{value} WHERE id = #{id}"
+    DatabaseConnection.exec_params("UPDATE artists SET #{column} = #{value} WHERE id = #{id}")
   end
 end
