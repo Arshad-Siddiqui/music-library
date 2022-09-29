@@ -20,6 +20,6 @@ class ArtistRepository
   end
 
   def update(column, value, id)
-    DatabaseConnection.exec_params("UPDATE artists SET #{column} = '#{value}' WHERE id = #{id}")
+    DatabaseConnection.exec_params("UPDATE artists SET #{column} = $1 WHERE id = $2", [value, id])
   end
 end
