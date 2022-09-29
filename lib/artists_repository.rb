@@ -1,3 +1,5 @@
+require 'artist'
+
 class ArtistRepository
   def all
     DatabaseConnection.exec_params('SELECT * FROM artists').map do |result|

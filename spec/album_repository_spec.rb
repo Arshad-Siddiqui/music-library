@@ -1,5 +1,4 @@
 require 'album_repository'
-require 'album'
 
 def reset_students_table
   seed_sql = File.read('spec/seeds_albums.sql')

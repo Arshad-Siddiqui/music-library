@@ -1,28 +1,15 @@
-require_relative 'lib/database_connection'
-require_relative 'lib/album'
+require_relative 'lib/artist_repository'
 require_relative 'lib/album_repository'
+require_relative 'database_connection'
 
 DatabaseConnection.connect('music_library')
 
-# sql = 'SELECT id, title FROM albums;'
-# result = DatabaseConnection.exec_params(sql, [])
+class Application
+  def initialize
 
-# result.each do |record|
-#   p record
-# end
+  end
 
-new_album = Album.new
+  def run
 
-album_repository = AlbumRepository.new
-
-new_album.id = 20
-new_album.title = "Arshad fire mixtape"
-new_album.release_year = 2022
-new_album.artist_id = 6
-
-# album_repository.all.each do |album|
-#   p album
-# end
-
-third_album = album_repository.find(3)
-puts "#{third_album.id}. #{third_album.title}, #{third_album.release_year}, #{third_album.artist_id}"
+  end
+end

@@ -1,3 +1,5 @@
+require 'album'
+
 class AlbumRepository
   def all
     sql = 'SELECT * FROM albums'
