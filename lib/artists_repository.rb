@@ -7,7 +7,7 @@ class ArtistRepository
 
   def find(id)
     result = DatabaseConnection.exec_params('SELECT * FROM artists WHERE id = $1', [id])[0]
-    artist = Artist.new(result['id'], result['name'], result['genre'])
+    Artist.new(result['id'], result['name'], result['genre'])
   end
 
   def create(artist)
