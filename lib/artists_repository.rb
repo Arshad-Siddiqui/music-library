@@ -6,7 +6,7 @@ class ArtistRepository
   end
 
   def find(id)
-    result = DatabaseConnection.exec_params('SELECT * FROM artists WHERE id = $1', [id])
+    result = DatabaseConnection.exec_params('SELECT * FROM artists WHERE id = $1', [id])[0]
     artist = Artist.new(result['id'], result['name'], result['genre'])
   end
 
@@ -20,6 +20,6 @@ class ArtistRepository
   end
 
   def update(column, value, id)
-    DatabaseConnection.exec_params("UPDATE artists SET #{column} = #{value} WHERE id = #{id}")
+    DatabaseConnection.exec_params("UPDATE artists SET #{column} = '#{value}' WHERE id = #{id}")
   end
 end
